@@ -16,9 +16,9 @@ document.getElementById('text').addEventListener('click', function() {
       roses.appendChild(rose);
   }
 
-  // Remove roses after animation
+  // Hide roses after animation
   setTimeout(() => {
       roses.style.display = 'none';
       document.getElementById('text').style.display = 'block';
-  }, 2000); // Time should match animation duration
+  }, 3000); // Duration should match animation duration
 });
