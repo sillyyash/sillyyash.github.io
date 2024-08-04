@@ -1,38 +1,250 @@
-/* styles.css */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #000;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(
+      ellipse at top,
+      transparent 0%,
+      var(--dark-color)
+    ),
+    radial-gradient(
+      ellipse at bottom,
+      var(--dark-color),
+      rgba(145, 233, 255, 0.2)
+    ),
+    repeating-linear-gradient(
+      220deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      189deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      148deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    linear-gradient(90deg, rgb(0, 255, 250), rgb(240, 240, 240));
+}
+
+.flowers {
+  position: relative;
+  transform: scale(0.9);
+}
+
+.flower {
+  position: absolute;
+  bottom: 10vmin;
+  transform-origin: bottom center;
+  z-index: 10;
+  --fl-speed: 0.8s;
+}
+
+.flower--1 {
+  animation: moving-flower-1 4s linear infinite;
+}
+
+.flower--2 {
+  left: 50%;
+  transform: rotate(20deg);
+  animation: moving-flower-2 4s linear infinite;
+}
+
+.flower--3 {
+  left: 50%;
+  transform: rotate(-15deg);
+  animation: moving-flower-3 4s linear infinite;
+}
+
+.flower__line {
+  height: 55vmin;
+  width: 1.5vmin;
+  background-image: linear-gradient(
+      to left,
+      rgb(0, 0, 0, 0.2),
+      transparent,
+      rgba(255, 255, 255, 0.2)
+    ),
+    linear-gradient(to top, transparent 10%, #14757a, #39c6d6);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  animation: grow-flower-tree 4s backwards;
+}
+
+.flower__line__leaf {
+  --w: 7vmin;
+  --h: calc(var(--w) + 2vmin);
+  position: absolute;
+  top: 20%;
+  left: 90%;
+  width: var(--w);
+  height: var(--h);
+  border-top-right-radius: var(--h);
+  border-bottom-left-radius: var(--h);
+  background-image: linear-gradient(
+    to top,
+    rgba(20, 117, 122, 0.4),
+    #39c6d6
+  );
+}
+
+.flower__light {
+  position: absolute;
+  bottom: 0vmin;
+  width: 1vmin;
+  height: 1vmin;
+  background-color: rgb(255, 251, 0);
+  border-radius: 50%;
+  filter: blur(0.2vmin);
+  animation: light-ans 4s linear infinite backwards;
+}
+
+.flower__grass {
+  --c: #159faa;
+  --line-w: 1.5vmin;
+  position: absolute;
+  bottom: 12vmin;
+  left: -7vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 20;
+  transform-origin: bottom center;
+  transform: rotate(-48deg) rotateY(40deg);
+}
+
+.flower__g-long {
+  --w: 2vmin;
+  --h: 6vmin;
+  --c: #159faa;
+  position: absolute;
+  bottom: 10vmin;
+  left: -3vmin;
+  transform-origin: bottom center;
+  transform: rotate(-30deg) rotateY(-20deg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  animation: flower-g-long-ans 3s linear infinite;
+}
+
+@keyframes moving-flower-1 {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .night {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: -1;
+  50% {
+    transform: translateY(-2vmin);
   }
-  
-  .flower {
-    position: absolute;
-    /* Add more styles for the flower positioning, sizes, and colors */
+}
+
+@keyframes moving-flower-2 {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .flower__leaf {
-    /* Style for the leaves */
+  50% {
+    transform: translateY(-1.5vmin);
   }
-  
-  .flower__light {
-    /* Style for the lights */
+}
+
+@keyframes moving-flower-3 {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .flower__line {
-    /* Style for the flower line */
+  50% {
+    transform: translateY(-1vmin);
   }
-  
-  .flower__grass {
-    /* Style for the grass */
+}
+
+@keyframes grow-flower-tree {
+  0% {
+    height: 0;
   }
-  
-  /* Add more specific styles based on your needs */
-  
+  100% {
+    height: 55vmin;
+  }
+}
+
+@keyframes light-ans {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes flower-g-long-ans {
+  0%, 100% {
+    transform: rotate(-30deg) rotateY(-20deg);
+  }
+  50% {
+    transform: rotate(-32deg) rotateY(-20deg);
+  }
+}
+
+@keyframes blooming-flower {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blooming-leaf-right {
+  0% {
+    opacity: 0;
+    transform: rotateY(40deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+@keyframes blooming-leaf-left {
+  0% {
+    opacity: 0;
+    transform: rotateY(-40deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
