@@ -1,33 +1,126 @@
-document.getElementById('text').addEventListener('click', function() {
-  this.style.display = 'none'; // Hide the JAGRITY text
-  const roses = document.getElementById('roses');
-  const imageContainer = document.getElementById('imageContainer');
-  const image = document.getElementById('image');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Text and Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
 
-  roses.style.display = 'block'; // Show the roses container
+        #text {
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 20px purple, 0 0 30px purple, 0 0 40px purple, 0 0 50px purple, 0 0 60px purple, 0 0 70px purple, 0 0 80px purple;
+            cursor: pointer;
+            position: relative;
+            animation: wave 2s infinite;
+        }
 
-  // Clear any existing roses
-  roses.innerHTML = '';
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
 
-  // Create rose animations
-  for (let i = 0; i < 100; i++) {
-      const rose = document.createElement('div');
-      rose.className = 'rose';
-      rose.style.top = Math.random() * 100 + '%';
-      rose.style.left = Math.random() * 100 + '%';
-      rose.style.animationDelay = Math.random() * 2 + 's'; // Stagger start times
-      roses.appendChild(rose);
-  }
+        .hidden {
+            display: none;
+        }
 
-  // Hide roses and show image container after animation
-  setTimeout(() => {
-      roses.style.display = 'none';
-      imageContainer.style.display = 'block';
-      image.style.animation = 'shatter 3s ease-out';
-  }, 3000); // Duration should match animation duration
+        #image-container {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
 
-  // Reset the image animation
-  image.addEventListener('animationend', function() {
-      image.style.animation = 'none';
-  });
-});
+        #image {
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            transition: width 1s ease, height 1s ease;
+        }
+
+        .show {
+            width: 200px;
+            height: 200px;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+            animation: drop 2s infinite;
+        }
+
+        @keyframes drop {
+            0% {
+                opacity: 1;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="text">JAGRITY</div>
+    <div id="image-container" class="hidden">
+        <img id="image" src="your-image.jpg" alt="Popping Image">
+        <div class="hearts" id="hearts"></div>
+    </div>
+
+    <script>
+        document.getElementById('text').addEventListener('click', function() {
+            document.getElementById('image-container').classList.remove('hidden');
+
+            setTimeout(() => {
+                document.getElementById('image').classList.add('show');
+                createHearts();
+            }, 100);
+        });
+
+        function createHearts() {
+            const container = document.getElementById('hearts');
+            const numberOfHearts = 30; // Number of hearts to drop
+
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.animationDuration = `${Math.random() * 1 + 1}s`; // Random duration between 1s and 2s
+                container.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
