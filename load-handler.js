@@ -1,3 +1,4 @@
+console.log("JavaScript file loaded");
 window.onload = () => {
     const c = setTimeout(() => {
       document.body.classList.remove("not-loaded");
