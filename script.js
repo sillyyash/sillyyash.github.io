@@ -1,7 +1,4 @@
-
-onload = () => {
-  const c = setTimeout(() => {
-    document.body.classList.remove("not-loaded");
-    clearTimeout(c);
-  }, 1000);
-};
+document.getElementById('text').addEventListener('click', function() {
+  document.getElementById('text').classList.add('hidden');
+  document.getElementById('roses').classList.remove('hidden');
+});
