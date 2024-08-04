@@ -1,6 +1,9 @@
 document.getElementById('text').addEventListener('click', function() {
   this.style.display = 'none'; // Hide the JAGRITY text
   const roses = document.getElementById('roses');
+  const imageContainer = document.getElementById('imageContainer');
+  const image = document.getElementById('image');
+
   roses.style.display = 'block'; // Show the roses container
 
   // Clear any existing roses
@@ -16,9 +19,15 @@ document.getElementById('text').addEventListener('click', function() {
       roses.appendChild(rose);
   }
 
-  // Hide roses after animation
+  // Hide roses and show image container after animation
   setTimeout(() => {
       roses.style.display = 'none';
-      document.getElementById('text').style.display = 'block';
+      imageContainer.style.display = 'block';
+      image.style.animation = 'shatter 3s ease-out';
   }, 3000); // Duration should match animation duration
+
+  // Reset the image animation
+  image.addEventListener('animationend', function() {
+      image.style.animation = 'none';
+  });
 });
