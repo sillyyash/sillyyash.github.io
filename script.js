@@ -1,4 +1,12 @@
 document.getElementById('text').addEventListener('click', function() {
-  document.getElementById('text').classList.add('hidden');
-  document.getElementById('roses').classList.remove('hidden');
+  const rosesImg = document.getElementById('roses');
+  const text = document.getElementById('text');
+  
+  if (rosesImg.style.display === 'none') {
+      text.style.display = 'none';
+      rosesImg.style.display = 'block';
+  } else {
+      rosesImg.style.display = 'none';
+      text.style.display = 'block';
+  }
 });

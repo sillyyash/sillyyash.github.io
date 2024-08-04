@@ -1,44 +1,39 @@
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #000;
+body, html {
+  height: 100%;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
   overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
-.container {
+#container {
   position: relative;
   text-align: center;
 }
 
-.glowing-text {
+#text {
   font-size: 5rem;
-  font-weight: bold;
   color: #fff;
-  text-shadow: 0 0 10px #fff, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
-  cursor: pointer;
-  transition: opacity 1s ease-in-out;
+  text-shadow: 0 0 20px #a020f0, 0 0 30px #a020f0, 0 0 40px #a020f0, 0 0 50px #a020f0, 0 0 60px #a020f0, 0 0 70px #a020f0, 0 0 80px #a020f0;
+  animation: glow 1.5s infinite alternate;
 }
 
-.roses {
-  background-image: url('https://images.unsplash.com/photo-1562184797-9d14de5c1a11'); /* Example rose image URL */
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: opacity 1s ease-in-out;
+@keyframes glow {
+  0% {
+      text-shadow: 0 0 20px #a020f0, 0 0 30px #a020f0, 0 0 40px #a020f0, 0 0 50px #a020f0, 0 0 60px #a020f0, 0 0 70px #a020f0, 0 0 80px #a020f0;
+  }
+  100% {
+      text-shadow: 0 0 30px #a020f0, 0 0 40px #a020f0, 0 0 50px #a020f0, 0 0 60px #a020f0, 0 0 70px #a020f0, 0 0 80px #a020f0, 0 0 90px #a020f0;
+  }
 }
 
-.hidden {
-  opacity: 0;
-}
-
-.visible {
-  opacity: 1;
+#roses {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
