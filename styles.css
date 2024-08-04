@@ -1,0 +1,38 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .night {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: -1;
+  }
+  
+  .flower {
+    position: absolute;
+    /* Add more styles for the flower positioning, sizes, and colors */
+  }
+  
+  .flower__leaf {
+    /* Style for the leaves */
+  }
+  
+  .flower__light {
+    /* Style for the lights */
+  }
+  
+  .flower__line {
+    /* Style for the flower line */
+  }
+  
+  .flower__grass {
+    /* Style for the grass */
+  }
+  
+  /* Add more specific styles based on your needs */
+  
