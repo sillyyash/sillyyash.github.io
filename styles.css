@@ -1,12 +1,13 @@
 body, html {
-  height: 100%;
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #000;
+  justify-content: center;
+  background: #000;
   overflow: hidden;
-  font-family: Arial, sans-serif;
 }
 
 #container {
@@ -17,23 +18,55 @@ body, html {
 #text {
   font-size: 5rem;
   color: #fff;
-  text-shadow: 0 0 20px #a020f0, 0 0 30px #a020f0, 0 0 40px #a020f0, 0 0 50px #a020f0, 0 0 60px #a020f0, 0 0 70px #a020f0, 0 0 80px #a020f0;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
   animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
-  0% {
-      text-shadow: 0 0 20px #a020f0, 0 0 30px #a020f0, 0 0 40px #a020f0, 0 0 50px #a020f0, 0 0 60px #a020f0, 0 0 70px #a020f0, 0 0 80px #a020f0;
+  from {
+      text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
   }
-  100% {
-      text-shadow: 0 0 30px #a020f0, 0 0 40px #a020f0, 0 0 50px #a020f0, 0 0 60px #a020f0, 0 0 70px #a020f0, 0 0 80px #a020f0, 0 0 90px #a020f0;
+  to {
+      text-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
   }
 }
 
 #roses {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
-  border-radius: 10px;
+  height: 100%;
+  display: none;
+  background: radial-gradient(circle, #fff, rgba(255, 255, 255, 0) 50%);
+  overflow: hidden;
 }
+
+@keyframes roseAnimation {
+  0% {
+      transform: scale(0);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0;
+  }
+}
+
+.rose {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #fff, rgba(255, 255, 255, 0) 60%);
+  border-radius: 50%;
+  animation: roseAnimation 2s infinite;
+}
+
+.rose:nth-child(1) { top: 10%; left: 20%; }
+.rose:nth-child(2) { top: 30%; left: 50%; }
+.rose:nth-child(3) { top: 50%; left: 30%; }
+.rose:nth-child(4) { top: 70%; left: 60%; }
+.rose:nth-child(5) { top: 90%; left: 40%; }
