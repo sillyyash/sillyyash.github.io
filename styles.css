@@ -29,6 +29,10 @@ body{
     overflow: hidden;
 }
 
+.flower.hidden {
+  display: none;
+}
+
 .flower{
     position: relative;
 }

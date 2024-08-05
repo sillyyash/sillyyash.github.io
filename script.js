@@ -8,18 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const extraButton = document.getElementById('extraButton');
     const videoContainer = document.getElementById('videoContainer');
     const video = document.getElementById('video');
-    const flower = document.querySelector('.flower'); // Select the flower element
+    const flower = document.querySelector('.flower');
 
     // Hide loader and show container after loading
     setTimeout(() => {
         loader.style.display = 'none';
         container.style.display = 'flex';
+        flower.classList.remove('hidden'); // Show flower animation
     }, 3000); // Adjust time if needed
 
     // Animation when clicking on JAGRITY
     text.addEventListener('click', () => {
         // Hide JAGRITY text
         text.style.display = 'none';
+
+        // Hide flower animation
+        flower.classList.add('hidden');
 
         // Trigger roses animation
         roses.style.display = 'block';
@@ -33,9 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
             roses.appendChild(rose);
         }
         setTimeout(() => {
-            // Hide blooming animation
-            flower.classList.add('hide-bloom');
-
             // Show image after roses animation
             imageContainer.style.display = 'flex';
             image.style.display = 'block';
