@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const extraButton = document.getElementById('extraButton');
     const videoContainer = document.getElementById('videoContainer');
     const video = document.getElementById('video');
+    const flower = document.querySelector('.flower'); // Select the flower element
 
     // Hide loader and show container after loading
     setTimeout(() => {
@@ -32,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
             roses.appendChild(rose);
         }
         setTimeout(() => {
+            // Hide blooming animation
+            flower.classList.add('hide-bloom');
+
             // Show image after roses animation
             imageContainer.style.display = 'flex';
             image.style.display = 'block';
