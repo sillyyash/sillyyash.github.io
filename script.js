@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageContainer = document.getElementById('imageContainer');
     const image = document.getElementById('image');
     const extraButton = document.getElementById('extraButton');
+    const anotherButton = document.getElementById('anotherButton'); // New Button
     const videoContainer = document.getElementById('videoContainer');
     const video = document.getElementById('video');
     const flower = document.querySelector('.flower');
@@ -41,9 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
             imageContainer.style.display = 'flex';
             image.style.display = 'block';
             setTimeout(() => {
-                // Show the button after 10 seconds
+                // Show the buttons after 10 seconds
                 extraButton.style.display = 'block';
-            }, 10000); // Show the button after 10 seconds
+                anotherButton.style.display = 'block'; // Show new button
+            }, 10000); // Show the buttons after 10 seconds
         }, 2000); // Time for the roses animation
     });
 

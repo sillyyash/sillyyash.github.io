@@ -612,3 +612,22 @@ body{
   width: 80%;
   height: 80%;
 }
+
+#anotherButton {
+    position: absolute;
+    bottom: 20px;
+    right: 150px; /* Adjust this value as needed to position the button */
+    background-color: #C8B6FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1;
+    display: none; /* Initially hidden */
+  }
+  
+  #anotherButton:hover {
+    background-color: #A68BCC;
+  }
+  
