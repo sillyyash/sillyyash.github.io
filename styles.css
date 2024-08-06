@@ -613,21 +613,26 @@ body{
   height: 80%;
 }
 
-#anotherButton {
+/* ...existing CSS content... */
+
+#buttonContainer {
     position: absolute;
     bottom: 20px;
-    right: 150px; /* Adjust this value as needed to position the button */
+    display: none;
+}
+
+#memoriesButton, #ebookButton {
     background-color: #C8B6FF;
     color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1;
-    display: none; /* Initially hidden */
-  }
-  
-  #anotherButton:hover {
+    margin-right: 10px;
+}
+
+#memoriesButton:hover, #ebookButton:hover {
     background-color: #A68BCC;
-  }
-  
+}
+
+/* ...existing CSS content... */
