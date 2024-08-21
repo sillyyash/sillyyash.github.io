@@ -56,6 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // eBook button functionality (example action)
     ebookButton.addEventListener('click', () => {
-    
+        alert('eBook button clicked!');
     });
 });
